@@ -1,0 +1,55 @@
+name: shellhub
+summary: Centralized SSH for the edge and cloud computing
+description: |
+  ShellHub is a centralized SSH gateway that allows users to remotely access and
+  manage their servers and devices from anywhere.
+  One of the main benefits of ShellHub is that it acts as a central gateway for
+  all your Linux servers and devices, allowing you to access them from anywhere
+  with an internet connection. This means you don't have to worry about getting
+  its public IP address, configuring the router, changing VPN/firewall settings
+  or using a jump host to access your servers and devices. This can be
+  inconvenient and time-consuming.
+adopt-info: shellhub
+grade: stable
+base: core22
+confinement: classic
+
+architectures: [amd64, arm64, armhf]
+
+apps:
+  shellhub:
+    command: bin/shellhub.wrapper
+    daemon: simple
+    restart-condition: always
+    stop-mode: sigterm
+
+parts:
+  shellhub:
+    plugin: go
+    build-snaps:
+      - go/latest/stable
+    source: https://github.com/shellhub-io/shellhub.git
+    source-tag: v0.14.3
+    build-attributes:
+      - enable-patchelf
+    override-pull: |
+      craftctl default
+      tag=$(git describe --tags --abbrev=0)
+      count=$(git rev-list $tag.. --count)
+      if [ "$count" = 0 ];
+      then
+        version=$tag
+      else
+        hash=$(git rev-parse --short HEAD)
+        version=$tag+git$count.$hash
+      fi
+      snapcraftctl set-version $version
+    override-build: |
+      mkdir -p $SNAPCRAFT_PART_INSTALL/bin
+      cd agent
+      go build -ldflags "-X main.AgentVersion=v0.14.3" -o $SNAPCRAFT_PART_INSTALL/bin/shellhub
+  local-bin:
+    plugin: dump
+    source: snap/local/bin
+    organize:
+      '*': bin/

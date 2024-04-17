@@ -1,0 +1,7 @@
+#!/bin/sh -e
+
+export SERVER_ADDRESS=$(snapctl get server-address)
+export TENANT_ID=$(snapctl get tenant-id)
+export PRIVATE_KEY=$(snapctl get private-key)
+
+exec $SNAP/bin/shellhub "$@"
