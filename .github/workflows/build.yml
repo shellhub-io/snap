@@ -1,0 +1,29 @@
+name: Build
+on: [push, release, pull_request]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        platform:
+        - amd64
+        - armhf
+        - arm64
+    steps:
+    - uses: actions/checkout@v3
+    - uses: docker/setup-qemu-action@v3
+    - uses: diddlesnaps/snapcraft-multiarch-action@v1
+      id: build
+      with:
+        architecture: ${{ matrix.platform }}
+    - uses: diddlesnaps/snapcraft-review-action@v1
+      with:
+        snap: ${{ steps.build.outputs.snap }}
+        isClassic: 'true'
+    - uses: snapcore/action-publish@v1
+      with:
+        store_login: ${{ secrets.SNAP_STORE_LOGIN }}
+        snap: ${{ steps.build.outputs.snap }}
+        release: stable
+      if: "github.event_name == 'release'"
