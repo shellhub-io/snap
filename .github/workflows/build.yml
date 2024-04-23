@@ -1,5 +1,10 @@
 name: Build
-on: [push, release, pull_request]
+
+on:
+  push:
+  pull_request:
+  release:
+    types: [published]
 
 jobs:
   build:
@@ -27,4 +32,4 @@ jobs:
       with:
         snap: ${{ steps.build.outputs.snap }}
         release: stable
-      if: "github.event_name == 'release'"
+      if: github.event_name == 'release' && !github.event.release.prerelease
