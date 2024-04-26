@@ -28,7 +28,7 @@ jobs:
         isClassic: 'true'
     - uses: actions/upload-artifact@v4
       with:
-        name: shellhub-agent-${{ matrix.architecture }}
+        name: shellhub-agent-${{ matrix.platform }}
         path: ${{ steps.build.outputs.snap }}
       if: github.event_name == 'release' && !github.event.release.prerelease
     - uses: snapcore/action-publish@v1
