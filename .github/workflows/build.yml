@@ -18,6 +18,9 @@ jobs:
     steps:
     - uses: actions/checkout@v3
     - uses: docker/setup-qemu-action@v3
+    - run: |
+        docker pull diddledan/snapcraft:core22
+        docker tag diddledan/snapcraft:core22 diddledani/snapcraft:core22
     - uses: diddlesnaps/snapcraft-multiarch-action@v1
       id: build
       with:
