@@ -29,7 +29,7 @@ parts:
     build-snaps:
       - go/latest/stable
     source: https://github.com/shellhub-io/shellhub.git
-    source-tag: v0.14.3
+    source-tag: v0.15.0-rc.1
     build-attributes:
       - enable-patchelf
     override-pull: |
@@ -43,11 +43,11 @@ parts:
         hash=$(git rev-parse --short HEAD)
         version=$tag+git$count.$hash
       fi
-      snapcraftctl set-version $version
+      craftctl set version=$version
     override-build: |
       mkdir -p $SNAPCRAFT_PART_INSTALL/bin
       cd agent
-      go build -ldflags "-X main.AgentVersion=v0.14.3" -o $SNAPCRAFT_PART_INSTALL/bin/shellhub
+      go build -ldflags "-X main.AgentVersion=$(craftctl get version)" -o $SNAPCRAFT_PART_INSTALL/bin/shellhub
   local-bin:
     plugin: dump
     source: snap/local/bin
