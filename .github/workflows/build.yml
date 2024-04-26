@@ -26,10 +26,15 @@ jobs:
       with:
         snap: ${{ steps.build.outputs.snap }}
         isClassic: 'true'
+    - uses: actions/upload-artifact@v4
+      with:
+        name: shellhub-agent-${{ matrix.architecture }}
+        path: ${{ steps.build.outputs.snap }}
+      if: github.event_name == 'release' && !github.event.release.prerelease
     - uses: snapcore/action-publish@v1
       env:
         SNAPCRAFT_STORE_CREDENTIALS: ${{ secrets.SNAP_STORE_LOGIN }}
       with:
         snap: ${{ steps.build.outputs.snap }}
         release: stable
-      if: github.event_name == 'release' && !github.event.release.prerelease
+      if: github.event_name == 'releasea' && !github.event.release.prerelease
