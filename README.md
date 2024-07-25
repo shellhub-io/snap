@@ -24,7 +24,7 @@
 ShellHub is available in the [Snap Store](https://snapcraft.io/shellhub). To install it, run the following command:
 
 ```
-sudo snap install --classic shellhub
+$ sudo snap install --classic shellhub
 ```
 
 > [!NOTE]
@@ -64,22 +64,6 @@ Replace `<key>` and `<value>` with the configuration settings you wish to change
 * `private-key`: The path to the private key used by the ShellHub agent.
 * `server-address`: The address of the ShellHub server the agent will connect to.
 * `tenant-id`: The tenant ID (if applicable) associated with the ShellHub namespace.
-
-
-  <p align="center">
-   <img src="https://img.shields.io/badge/Arch_Linux-1793D1?style=flat&logo=arch-linux&logoColor=white" height="28px"/>
-    <img src="https://img.shields.io/badge/CentOS-262577?style=flat&logo=centos" height="28px"/>
-    <img src="https://img.shields.io/badge/Debian-A81D33?style=flat&logo=debian" height="28px"/>
-    <img src="https://img.shields.io/badge/elementary_OS-64BAFF?style=flat&logo=elementary&logoColor=white" height="28px"/>
-    <img src="https://img.shields.io/badge/Fedora-294172?style=flat&logo=fedora&logoColor=white" height="28px"/>
-    <img src="https://img.shields.io/badge/KDE_Neon-1BAF73?style=flat&logo=kde&logoColor=white" height="28px"/>
-    <img src="https://img.shields.io/badge/Kubuntu-0079C1?style=flat&logo=kubuntu" height="28px"/>
-    <img src="https://img.shields.io/badge/Manjaro-35BF5C?style=flat&logo=manjaro&logoColor=white" height="28px"/>
-    <img src="https://img.shields.io/badge/Pop!_OS-48B9C7?style=flat&logo=pop!_os&logoColor=white" height="28px"/>
-    <img src="https://img.shields.io/badge/openSUSE-73BA25?style=flat&logo=opensuse&logoColor=white" height="28px"/>
-    <img src="https://img.shields.io/badge/Red_Hat_Enterprise_Linux-EE0000?style=flat&logo=red-hat" height="28px"/>
-    <img src="https://img.shields.io/badge/Ubuntu-E95420?style=flat&logo=ubuntu&logoColor=white" height="28px"/>
-  </p>
 
 ## Building
 
