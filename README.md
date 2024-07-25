@@ -1,31 +1,36 @@
 <div align="center">
-  <h1 align="center">ShellHub Snap</h1>
-
-  <p align="center">Download ShellHub Agent for your platform:</p>
-
-  <p align="center">
-    <a href="https://redir-url.fly.dev/?url=https://api.github.com/repos/shellhub-io/snap/releases/latest&query=$.assets[0].browser_download_url">
-      <img src="https://img.shields.io/badge/Ubuntu_Core_22-amd64-82BEA0?style=flat&logo=snapcraft" height="28px"/>
-    </a>
-    <a href="https://redir-url.fly.dev/?url=https://api.github.com/repos/shellhub-io/snap/releases/latest&query=$.assets[1].browser_download_url">
-      <img src="https://img.shields.io/badge/Ubuntu_Core_22-arm64-82BEA0?style=flat&logo=snapcraft" height="28px"/>
-    </a>
-    <a href="https://redir-url.fly.dev/?url=https://api.github.com/repos/shellhub-io/snap/releases/latest&query=$.assets[2].browser_download_url">
-      <img src="https://img.shields.io/badge/Ubuntu_Core_22-armhf-82BEA0?style=flat&logo=snapcraft" height="28px"/>
+  <h1>ShellHub Agent for Snap</h1>
+  <p>
+    <a href="https://snapcraft.io/shellhub">
+      <img src="https://img.shields.io/badge/Get_it_from_the_Snap_Store-5A5A5A?style=flat&logo=snapcraft" height="32px"/>
     </a>
   </p>
+  <img src="https://img.shields.io/badge/Arch_Linux-1793D1?style=flat&logo=arch-linux&logoColor=white" height="22px"/>
+  <img src="https://img.shields.io/badge/CentOS-262577?style=flat&logo=centos" height="22px"/>
+  <img src="https://img.shields.io/badge/Debian-A81D33?style=flat&logo=debian" height="22px"/>
+  <img src="https://img.shields.io/badge/elementary_OS-64BAFF?style=flat&logo=elementary&logoColor=white" height="22px"/>
+  <img src="https://img.shields.io/badge/Fedora-294172?style=flat&logo=fedora&logoColor=white" height="22px"/>
+  <img src="https://img.shields.io/badge/KDE_Neon-1BAF73?style=flat&logo=kde&logoColor=white" height="22px"/>
+  <img src="https://img.shields.io/badge/Kubuntu-0079C1?style=flat&logo=kubuntu" height="22px"/>
+  <img src="https://img.shields.io/badge/Manjaro-35BF5C?style=flat&logo=manjaro&logoColor=white" height="22px"/>
+  <img src="https://img.shields.io/badge/Pop!_OS-48B9C7?style=flat&logo=pop!_os&logoColor=white" height="22px"/>
+  <img src="https://img.shields.io/badge/openSUSE-73BA25?style=flat&logo=opensuse&logoColor=white" height="22px"/>
+  <img src="https://img.shields.io/badge/Red_Hat_Enterprise_Linux-EE0000?style=flat&logo=red-hat" height="22px"/>
+  <img src="https://img.shields.io/badge/Ubuntu-E95420?style=flat&logo=ubuntu&logoColor=white" height="22px"/>
 </div>
 
 ## Installation
 
-Currently, ShellHub is not available in the Snap Store.
-To install it, you need to download it manually and then run the following command to install:
+ShellHub is available in the [Snap Store](https://snapcraft.io/shellhub). To install it, run the following command:
 
 ```
-$ sudo snap install --classic --dangerous shellhub_<version>_<platform>.snap
+sudo snap install --classic shellhub
 ```
 
-Replace `<version>` with the appropriate version and `<platform>` with the platform (e.g., amd64, arm64, etc.).
+> [!NOTE]
+> By default, the ShellHub is configured to use the [ShellHub Cloud](https://cloud.shellhub.io),
+> making it easy to get started without needing to set up a self-hosted instance.
+> You just need to set the `tenant-id` to connect your device to your ShellHub Cloud namespace.
 
 ## Configuration
 
@@ -59,6 +64,22 @@ Replace `<key>` and `<value>` with the configuration settings you wish to change
 * `private-key`: The path to the private key used by the ShellHub agent.
 * `server-address`: The address of the ShellHub server the agent will connect to.
 * `tenant-id`: The tenant ID (if applicable) associated with the ShellHub namespace.
+
+
+  <p align="center">
+   <img src="https://img.shields.io/badge/Arch_Linux-1793D1?style=flat&logo=arch-linux&logoColor=white" height="28px"/>
+    <img src="https://img.shields.io/badge/CentOS-262577?style=flat&logo=centos" height="28px"/>
+    <img src="https://img.shields.io/badge/Debian-A81D33?style=flat&logo=debian" height="28px"/>
+    <img src="https://img.shields.io/badge/elementary_OS-64BAFF?style=flat&logo=elementary&logoColor=white" height="28px"/>
+    <img src="https://img.shields.io/badge/Fedora-294172?style=flat&logo=fedora&logoColor=white" height="28px"/>
+    <img src="https://img.shields.io/badge/KDE_Neon-1BAF73?style=flat&logo=kde&logoColor=white" height="28px"/>
+    <img src="https://img.shields.io/badge/Kubuntu-0079C1?style=flat&logo=kubuntu" height="28px"/>
+    <img src="https://img.shields.io/badge/Manjaro-35BF5C?style=flat&logo=manjaro&logoColor=white" height="28px"/>
+    <img src="https://img.shields.io/badge/Pop!_OS-48B9C7?style=flat&logo=pop!_os&logoColor=white" height="28px"/>
+    <img src="https://img.shields.io/badge/openSUSE-73BA25?style=flat&logo=opensuse&logoColor=white" height="28px"/>
+    <img src="https://img.shields.io/badge/Red_Hat_Enterprise_Linux-EE0000?style=flat&logo=red-hat" height="28px"/>
+    <img src="https://img.shields.io/badge/Ubuntu-E95420?style=flat&logo=ubuntu&logoColor=white" height="28px"/>
+  </p>
 
 ## Building
 
