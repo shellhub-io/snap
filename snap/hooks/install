@@ -3,3 +3,4 @@
 snapctl set server-address=https://cloud.shellhub.io
 snapctl set tenant-id=
 snapctl set private-key=/etc/shellhub.key
+snapctl set preferred-hostname=
