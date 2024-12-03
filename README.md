@@ -44,11 +44,12 @@ $ snap get shellhub
 
 This will display the current configuration settings for the ShellHub agent:
 
-| Key              | Value                       |
-|------------------|-----------------------------|
-| `private-key`    | `/etc/shellhub.key`         |
-| `server-address` | `https://cloud.shellhub.io` |
-| `tenant-id`      |                             |
+| Key                  | Value                       |
+|----------------------|-----------------------------|
+| `private-key`        | `/etc/shellhub.key`         |
+| `server-address`     | `https://cloud.shellhub.io` |
+| `tenant-id`          |                             |
+| `preferred-hostname` |                             |
 
 ### Setting Configuration
 
