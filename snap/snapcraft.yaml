@@ -16,8 +16,11 @@ confinement: classic
 
 architectures:
   - build-on: [amd64]
-  - build-on: [arm64]
-  - build-on: [armhf]
+    build-for: [amd64]
+  - build-on: [amd64]
+    build-for: [arm64]
+  - build-on: [amd64]
+    build-for: [armhf]
 
 apps:
   shellhub:
@@ -48,6 +51,12 @@ parts:
       fi
       craftctl set version=$version
     override-build: |
+      GOARCH=$CRAFT_ARCH_BUILD_FOR
+      if [ "$CRAFT_ARCH_BUILD_FOR" = "armhf" ];
+      then
+        GOARCH=arm
+      fi
+      export GOARCH
       mkdir -p $SNAPCRAFT_PART_INSTALL/bin
       cd agent
       go build -ldflags "-X main.AgentVersion=$(craftctl get version)" -o $SNAPCRAFT_PART_INSTALL/bin/shellhub
