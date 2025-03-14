@@ -18,17 +18,8 @@ jobs:
         - arm64
     steps:
     - uses: actions/checkout@v3
-    - uses: docker/setup-qemu-action@v3
-      with:
-        image: tonistiigi/binfmt:qemu-v9.2.2
-    - uses: diddlesnaps/snapcraft-multiarch-action@v1
-      id: build
-      with:
-        architecture: ${{ matrix.platform }}
-    - uses: diddlesnaps/snapcraft-review-action@v1
-      with:
-        snap: ${{ steps.build.outputs.snap }}
-        isClassic: 'true'
+    - uses: snapcore/action-build@v1
+      id: snapcraft
     - uses: softprops/action-gh-release@v2
       with:
         draft: true
@@ -39,5 +30,11 @@ jobs:
         SNAPCRAFT_STORE_CREDENTIALS: ${{ secrets.SNAP_STORE_LOGIN }}
       with:
         snap: ${{ steps.build.outputs.snap }}
+        release: edge
+    - uses: snapcore/action-publish@v1
+      env:
+        SNAPCRAFT_STORE_CREDENTIALS: ${{ secrets.SNAP_STORE_LOGIN }}
+      with:
+        snap: ${{ steps.build.outputs.snap }}
         release: stable
-      if: github.event_name == 'releasea' && !github.event.release.prerelease
+      if: github.event_name == 'release' && !github.event.release.prerelease
