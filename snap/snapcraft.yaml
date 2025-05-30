@@ -57,6 +57,7 @@ parts:
         GOARCH=arm
       fi
       export GOARCH
+      export CGO_ENABLED=0
       mkdir -p $SNAPCRAFT_PART_INSTALL/bin
       cd agent
       go build -ldflags "-X main.AgentVersion=$(craftctl get version)" -o $SNAPCRAFT_PART_INSTALL/bin/shellhub
