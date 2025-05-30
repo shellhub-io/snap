@@ -77,5 +77,4 @@ $ sudo snap install --classic --dangerous shellhub_<version>_amd64.snap
 
 Replace `<version>` with the appropriate version number of the generated snap file.
 
-
 Make sure to replace the default values with your own configurations if needed.
