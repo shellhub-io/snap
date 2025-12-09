@@ -4,5 +4,7 @@ export SERVER_ADDRESS=$(snapctl get server-address)
 export TENANT_ID=$(snapctl get tenant-id)
 export PRIVATE_KEY=$(snapctl get private-key)
 export PREFERRED_HOSTNAME=$(snapctl get preferred-hostname)
+export PREFERRED_IDENTITY=$(snapctl get preferred-identity)
+export KEEPALIVE_INTERVAL=$(snapctl get keepalive-interval)
 
 exec $SNAP/bin/shellhub "$@"
