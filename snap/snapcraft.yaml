@@ -35,7 +35,7 @@ parts:
     build-snaps:
       - go/latest/stable
     source: https://github.com/shellhub-io/shellhub.git
-    source-tag: v0.21.3
+    source-tag: v0.21.5
     build-attributes:
       - enable-patchelf
     override-pull: |
