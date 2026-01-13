@@ -5,6 +5,12 @@ export TENANT_ID=$(snapctl get tenant-id)
 export PRIVATE_KEY=$(snapctl get private-key)
 export PREFERRED_HOSTNAME=$(snapctl get preferred-hostname)
 export PREFERRED_IDENTITY=$(snapctl get preferred-identity)
-export KEEPALIVE_INTERVAL=$(snapctl get keepalive-interval)
+
+# Only export KEEPALIVE_INTERVAL if it's configured (non-empty)
+# This allows the agent to use its default value when not set
+KEEPALIVE_INTERVAL_VALUE=$(snapctl get keepalive-interval)
+if [ -n "$KEEPALIVE_INTERVAL_VALUE" ]; then
+    export KEEPALIVE_INTERVAL=$KEEPALIVE_INTERVAL_VALUE
+fi
 
 exec $SNAP/bin/shellhub "$@"
