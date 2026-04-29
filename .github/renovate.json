@@ -1,7 +1,8 @@
 {
-  "extends": ["config:base"],
-  "regexManagers": [
+  "extends": ["config:recommended"],
+  "customManagers": [
     {
+      "customType": "regex",
       "fileMatch": ["^snap/snapcraft\\.yaml$"],
       "matchStrings": [
         "source-tag:\\s*v(?<currentValue>\\d+\\.\\d+\\.\\d+)"
@@ -13,13 +14,13 @@
   ],
   "packageRules": [
     {
-      "matchPackagePatterns": [
+      "matchPackageNames": [
         "*"
       ],
       "enabled": false
     },
     {
-      "matchPackagePatterns": [
+      "matchPackageNames": [
         "shellhub-io/shellhub"
       ],
       "enabled": true
