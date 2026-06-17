@@ -27,6 +27,14 @@ ShellHub is available in the [Snap Store](https://snapcraft.io/shellhub). To ins
 $ sudo snap install --classic shellhub
 ```
 
+## Usage
+
+After installation, interact with the ShellHub agent using the `shellhub-agent` command:
+
+```
+$ shellhub-agent info
+```
+
 > [!NOTE]
 > By default, the ShellHub is configured to use the [ShellHub Cloud](https://cloud.shellhub.io),
 > making it easy to get started without needing to set up a self-hosted instance.
