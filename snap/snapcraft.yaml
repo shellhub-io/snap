@@ -28,6 +28,10 @@ apps:
     daemon: simple
     restart-condition: always
     stop-mode: sigterm
+  agent:
+    command: bin/shellhub.wrapper
+    aliases:
+      - shellhub-agent
 
 parts:
   shellhub:
