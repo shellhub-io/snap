@@ -1,1 +1,30 @@
-#!/bin/sh
+#!/bin/sh -e
+
+# The agent reads its enrollment settings only at startup, so a `snap set` has
+# to restart the service to take effect. snapd does not pass hooks the previous
+# values, so the last applied set is kept in SNAP_DATA to tell a real change
+# apart from a `snap set` of an unrelated key.
+applied="$SNAP_DATA/enrollment.applied"
+
+current=$(printf '%s\n' \
+    "server-address=$(snapctl get server-address)" \
+    "tenant-id=$(snapctl get tenant-id)" \
+    "install-key=$(snapctl get install-key)" \
+    "private-key=$(snapctl get private-key)")
+
+if [ -f "$applied" ]; then
+    previous=$(cat "$applied")
+else
+    # First run, during installation: the service has not started yet.
+    previous="$current"
+fi
+
+if [ "$current" != "$previous" ]; then
+    snapctl restart "$SNAP_INSTANCE_NAME.shellhub"
+fi
+
+# Recorded only after a successful restart: a failed hook makes snapd roll the
+# configuration back, and a state file written ahead of it would make the next
+# `snap set` of the same values skip the restart.
+umask 077
+printf '%s\n' "$current" > "$applied"

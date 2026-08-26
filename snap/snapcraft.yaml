@@ -1,14 +1,10 @@
 name: shellhub
-summary: Centralized SSH for the edge and cloud computing
+summary: Access infrastructure for connected devices
 description: |
-  ShellHub is a centralized SSH gateway that allows users to remotely access and
-  manage their servers and devices from anywhere.
-  One of the main benefits of ShellHub is that it acts as a central gateway for
-  all your Linux servers and devices, allowing you to access them from anywhere
-  with an internet connection. This means you don't have to worry about getting
-  its public IP address, configuring the router, changing VPN/firewall settings
-  or using a jump host to access your servers and devices. This can be
-  inconvenient and time-consuming.
+  The ShellHub agent connects the device outbound to a ShellHub server, so the
+  device can be reached from anywhere without a public address. Enroll it with
+  an install key, by pairing it from the console, or with a tenant ID, and
+  access it through the server from the console or any SSH client.
 adopt-info: shellhub
 grade: stable
 base: core22
